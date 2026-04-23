@@ -1,0 +1,183 @@
+import { useState } from "react";
+import { Link, useLocation } from "react-router";
+import { Menu, X, LogOut, User, Shield } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+
+export default function Navigation() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
+
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "Degen Intel", path: "/intel" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "Contact", path: "/contact" },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-[rgba(5,5,5,0.7)] backdrop-blur-[24px] border-b border-white/[0.06]">
+      <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="relative">
+            <img 
+              src="/logo.png" 
+              alt="Spectr Logo" 
+              className="w-8 h-8 object-contain transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div className="flex items-center font-black tracking-tighter text-2xl">
+            <span className="text-white">SPECTR</span>
+            <span className="text-[#00FFFF] ml-2">Trading</span>
+          </div>
+        </Link>
+
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`text-sm font-medium transition-colors duration-300 ${
+                location.pathname === link.path
+                  ? "text-[#00FFFF]"
+                  : "text-white/60 hover:text-[#00FFFF]"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          {isAdmin && (
+            <Link
+              to="/messages"
+              className={`text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
+                location.pathname === "/messages"
+                  ? "text-[#00FFFF]"
+                  : "text-white/60 hover:text-[#00FFFF]"
+              }`}
+            >
+              <Shield className="w-3.5 h-3.5" />
+              Admin
+            </Link>
+          )}
+        </div>
+
+        {/* Desktop Auth */}
+        <div className="hidden md:flex items-center gap-3">
+          {isAuthenticated && user ? (
+            <div className="flex items-center gap-3">
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+              >
+                <User className="w-4 h-4" />
+                {user.name}
+              </Link>
+              <button
+                onClick={logout}
+                className="flex items-center gap-1.5 text-sm text-white/40 hover:text-[#00FFFF] transition-colors border border-white/[0.15] rounded-lg px-4 py-2 hover:border-[#00FFFF]"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-sm font-medium text-white/60 hover:text-white transition-colors border border-white/[0.15] rounded-lg px-5 py-2 hover:border-[#00FFFF]"
+              >
+                Login
+              </Link>
+              <Link
+                to="/login?mode=register"
+                className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-5 py-2 hover:bg-[#00E396] transition-all duration-300"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-[rgba(5,5,5,0.95)] backdrop-blur-[32px] border-t border-white/[0.06] px-6 py-6">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileOpen(false)}
+                className={`text-base font-medium ${
+                  location.pathname === link.path
+                    ? "text-[#00FFFF]"
+                    : "text-white/60"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            {isAdmin && (
+              <Link
+                to="/messages"
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-white/60 flex items-center gap-2"
+              >
+                <Shield className="w-4 h-4" />
+                Admin Dashboard
+              </Link>
+            )}
+            <div className="border-t border-white/[0.06] pt-4 mt-2 flex flex-col gap-3">
+              {isAuthenticated && user ? (
+                <>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 text-white/60"
+                  >
+                    <User className="w-4 h-4" />
+                    {user.name}
+                  </Link>
+                  <button
+                    onClick={() => { logout(); setMobileOpen(false); }}
+                    className="flex items-center gap-2 text-[#00FFFF]"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-center text-white/60 border border-white/[0.15] rounded-lg py-2"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/login?mode=register"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2 font-semibold"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
