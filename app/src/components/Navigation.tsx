@@ -84,7 +84,7 @@ export default function Navigation() {
             </div>
           ) : (
             <a
-              href="http://localhost:5174"
+              href="https://app.spectrtrading.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-6 py-2.5 hover:bg-[#00E396] transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.35)] hover:shadow-[0_0_28px_rgba(0,255,255,0.55)]"
@@ -152,7 +152,7 @@ export default function Navigation() {
                 </>
               ) : (
                 <a
-                  href="http://localhost:5174"
+                  href="https://app.spectrtrading.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
