@@ -85,6 +85,10 @@ export default function Pricing() {
             </div>
 
             <div className="mb-6">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-white/30 text-sm line-through">$79</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#00FFFF]/60 bg-[rgba(0,255,255,0.08)] px-2 py-0.5 rounded-full">Exclusive offer</span>
+              </div>
               <span className="font-mono-data text-[clamp(24px,3vw,40px)] font-bold text-white">$29</span>
               <span className="text-white/40 text-sm ml-2">/month</span>
             </div>
@@ -135,6 +139,10 @@ export default function Pricing() {
             </div>
 
             <div className="relative mb-6">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-white/30 text-sm line-through">$1099</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#00E396]/70 bg-[rgba(0,227,150,0.08)] px-2 py-0.5 rounded-full">Exclusive offer</span>
+              </div>
               <span className="font-mono-data text-[clamp(24px,3vw,40px)] font-bold text-[#00E396]">$499</span>
               <span className="text-white/40 text-sm ml-2">one-time</span>
             </div>

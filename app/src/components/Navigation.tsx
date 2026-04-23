@@ -83,20 +83,14 @@ export default function Navigation() {
               </button>
             </div>
           ) : (
-            <>
-              <Link
-                to="/login"
-                className="text-sm font-medium text-white/60 hover:text-white transition-colors border border-white/[0.15] rounded-lg px-5 py-2 hover:border-[#00FFFF]"
-              >
-                Login
-              </Link>
-              <Link
-                to="/login?mode=register"
-                className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-5 py-2 hover:bg-[#00E396] transition-all duration-300"
-              >
-                Sign Up
-              </Link>
-            </>
+            <a
+              href="http://localhost:5174"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-6 py-2.5 hover:bg-[#00E396] transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.35)] hover:shadow-[0_0_28px_rgba(0,255,255,0.55)]"
+            >
+              Launch App
+            </a>
           )}
         </div>
 
@@ -157,22 +151,15 @@ export default function Navigation() {
                   </button>
                 </>
               ) : (
-                <>
-                  <Link
-                    to="/login"
-                    onClick={() => setMobileOpen(false)}
-                    className="text-center text-white/60 border border-white/[0.15] rounded-lg py-2"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/login?mode=register"
-                    onClick={() => setMobileOpen(false)}
-                    className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2 font-semibold"
-                  >
-                    Sign Up
-                  </Link>
-                </>
+                <a
+                  href="http://localhost:5174"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2.5 font-semibold shadow-[0_0_20px_rgba(0,255,255,0.35)]"
+                >
+                  Launch App
+                </a>
               )}
             </div>
           </div>
