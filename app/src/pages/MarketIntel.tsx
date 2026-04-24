@@ -27,7 +27,7 @@ function getSignalConfig(type: string) {
   }
 }
 
-export default function DegenIntel() {
+export default function MarketIntel() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
   const [visibleSignals, setVisibleSignals] = useState<number[]>([]);
   const streamRef = useRef<HTMLDivElement>(null);
@@ -70,7 +70,7 @@ export default function DegenIntel() {
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1 h-1 rounded-full bg-[#00FFFF]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#00FFFF]/60">
-              Degen Intel
+              Market Intel
             </span>
           </div>
           <h1 className="text-[clamp(36px,5vw,64px)] font-extrabold text-white tracking-[-0.02em] mb-4">

@@ -83,7 +83,7 @@ export default function BentoFeatures() {
   }, []);
 
   return (
-    <section className="relative z-10 px-6 py-[120px]">
+    <section id="features" className="relative z-10 px-6 py-[120px]">
       <div className="max-w-[1280px] mx-auto">
         {/* Section Header */}
         <div className="mb-12">

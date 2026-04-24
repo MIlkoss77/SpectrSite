@@ -124,7 +124,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 overflow-hidden">
+    <section id="hero" ref={sectionRef} className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 overflow-hidden">
       {/* Animated SVG Background */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[800px] h-[600px] max-w-full">
@@ -137,7 +137,7 @@ export default function Hero() {
         <div className="hero-animate flex items-center justify-center gap-2 mb-6">
           <span className="w-1 h-1 rounded-full bg-[#00FFFF]" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#00FFFF]/60">
-            The market doesn&apos;t sleep
+            Systematic Edge for Disciplined Minds
           </span>
         </div>
 
@@ -147,7 +147,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-animate mt-6 text-base text-white/60 max-w-[560px] mx-auto leading-relaxed">
-          Spectr Trading is the intelligence layer between you and the market. Real-time alpha. Cross-exchange mastery. AI-powered edge.
+          The first crypto terminal uniting AI market analytics with trader neurobiology. Get clean data and cognitive supremacy.
         </p>
 
         <div className="hero-animate flex items-center justify-center gap-4 mt-10">

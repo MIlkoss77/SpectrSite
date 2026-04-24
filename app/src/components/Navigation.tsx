@@ -9,10 +9,11 @@ export default function Navigation() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
 
   const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "Degen Intel", path: "/intel" },
+    { label: "Features", path: "/#features" },
+    { label: "Market Intel", path: "/intel" },
+    { label: "Pro Stack", path: "/#pro-stack" },
+    { label: "Academy", path: "/#academy" },
     { label: "Pricing", path: "/pricing" },
-    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -35,19 +36,26 @@ export default function Navigation() {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                location.pathname === link.path
-                  ? "text-[#00FFFF]"
-                  : "text-white/60 hover:text-[#00FFFF]"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isHashLink = link.path.startsWith("/#");
+            const isActive = isHashLink 
+              ? (location.pathname === "/" && location.hash === link.path.substring(1))
+              : (location.pathname === link.path);
+
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  isActive
+                    ? "text-[#00FFFF]"
+                    : "text-white/60 hover:text-[#00FFFF]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           {isAdmin && (
             <Link
               to="/messages"
@@ -107,20 +115,27 @@ export default function Navigation() {
       {mobileOpen && (
         <div className="md:hidden bg-[rgba(5,5,5,0.95)] backdrop-blur-[32px] border-t border-white/[0.06] px-6 py-6">
           <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setMobileOpen(false)}
-                className={`text-base font-medium ${
-                  location.pathname === link.path
-                    ? "text-[#00FFFF]"
-                    : "text-white/60"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isHashLink = link.path.startsWith("/#");
+              const isActive = isHashLink 
+                ? (location.pathname === "/" && location.hash === link.path.substring(1))
+                : (location.pathname === link.path);
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={`text-base font-medium ${
+                    isActive
+                      ? "text-[#00FFFF]"
+                      : "text-white/60"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             {isAdmin && (
               <Link
                 to="/messages"
