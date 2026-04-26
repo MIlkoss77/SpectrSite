@@ -113,6 +113,14 @@ export default function Login() {
             Continue with Kimi
           </button>
 
+          <button
+            onClick={() => { window.location.href = `${import.meta.env.VITE_API_BASE || 'http://localhost:3000'}/api/auth/google`; }}
+            className="w-full mt-3 bg-white text-[#050505] font-semibold text-sm py-3 rounded-lg hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+          >
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-4 h-4" />
+            Continue with Google
+          </button>
+
           {/* Divider */}
           <div className="flex items-center gap-4 my-6">
             <div className="flex-1 h-px bg-white/[0.08]" />
