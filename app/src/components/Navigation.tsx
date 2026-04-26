@@ -170,15 +170,23 @@ export default function Navigation() {
                     <LogOut className="w-4 h-4" />
                     Logout
                   </button>
-                </>
               ) : (
-                <a
-                  href="https://app.spectrtrading.com/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2.5 font-semibold shadow-[0_0_20px_rgba(0,255,255,0.35)]"
-                >
-                  Launch Terminal
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://app.spectrtrading.com/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-center text-white/60 py-2.5 font-semibold"
+                  >
+                    Login
+                  </a>
+                  <a
+                    href="https://app.spectrtrading.com/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2.5 font-semibold shadow-[0_0_20px_rgba(0,255,255,0.35)]"
+                  >
+                    Sign Up
+                  </a>
+                </div>
               )}
             </div>
           </div>
