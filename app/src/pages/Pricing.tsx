@@ -106,7 +106,10 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <button className="w-full bg-[#00FFFF] text-[#050505] font-semibold text-sm py-3.5 rounded-lg hover:bg-[#00E396] transition-all duration-300 hover:-translate-y-0.5">
+            <button 
+              onClick={() => window.location.href = "https://app.spectrtrading.com/login"}
+              className="w-full bg-[#00FFFF] text-[#050505] font-semibold text-sm py-3.5 rounded-lg hover:bg-[#00E396] transition-all duration-300 hover:-translate-y-0.5"
+            >
               Get Pro
             </button>
           </div>
@@ -160,7 +163,10 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <button className="relative w-full bg-[#00E396] text-[#050505] font-semibold text-sm py-3.5 rounded-lg hover:bg-[#00d185] transition-all duration-300 hover:-translate-y-0.5">
+            <button 
+              onClick={() => window.location.href = "https://app.spectrtrading.com/login"}
+              className="relative w-full bg-[#00E396] text-[#050505] font-semibold text-sm py-3.5 rounded-lg hover:bg-[#00d185] transition-all duration-300 hover:-translate-y-0.5"
+            >
               Become a Founder
             </button>
           </div>
