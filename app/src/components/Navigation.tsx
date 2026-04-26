@@ -73,14 +73,14 @@ export default function Navigation() {
 
         {/* Desktop Auth */}
         <div className="hidden md:flex items-center gap-3">
-          {isAuthenticated && user ? (
+          {user ? (
             <div className="flex items-center gap-3">
               <Link
                 to="/dashboard"
                 className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
               >
                 <User className="w-4 h-4" />
-                {user.name}
+                {user.name || user.username || 'Trader'}
               </Link>
               <button
                 onClick={logout}
@@ -153,7 +153,7 @@ export default function Navigation() {
               </Link>
             )}
             <div className="border-t border-white/[0.06] pt-4 mt-2 flex flex-col gap-3">
-              {isAuthenticated && user ? (
+              {user ? (
                 <>
                   <Link
                     to="/dashboard"
@@ -161,7 +161,7 @@ export default function Navigation() {
                     className="flex items-center gap-2 text-white/60"
                   >
                     <User className="w-4 h-4" />
-                    {user.name}
+                    {user.name || user.username || 'Trader'}
                   </Link>
                   <button
                     onClick={() => { logout(); setMobileOpen(false); }}
@@ -173,13 +173,11 @@ export default function Navigation() {
                 </>
               ) : (
                 <a
-                  href="https://app.spectrtrading.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="https://app.spectrtrading.com/login"
                   onClick={() => setMobileOpen(false)}
                   className="text-center text-[#050505] bg-[#00FFFF] rounded-lg py-2.5 font-semibold shadow-[0_0_20px_rgba(0,255,255,0.35)]"
                 >
-                  Launch App
+                  Launch Terminal
                 </a>
               )}
             </div>
