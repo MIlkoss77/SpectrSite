@@ -91,14 +91,20 @@ export default function Navigation() {
               </button>
             </div>
           ) : (
-            <a
-              href="https://app.spectrtrading.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-6 py-2.5 hover:bg-[#00E396] transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.35)] hover:shadow-[0_0_28px_rgba(0,255,255,0.55)]"
-            >
-              Launch App
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://app.spectrtrading.com/login"
+                className="text-sm font-semibold text-white/60 hover:text-[#00FFFF] transition-colors"
+              >
+                Login
+              </a>
+              <a
+                href="https://app.spectrtrading.com/login"
+                className="text-sm font-semibold text-[#050505] bg-[#00FFFF] rounded-lg px-6 py-2.5 hover:bg-[#00E396] transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.35)] hover:shadow-[0_0_28px_rgba(0,255,255,0.55)]"
+              >
+                Sign Up
+              </a>
+            </div>
           )}
         </div>
 
