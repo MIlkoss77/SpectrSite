@@ -170,6 +170,7 @@ export default function Navigation() {
                     <LogOut className="w-4 h-4" />
                     Logout
                   </button>
+                </>
               ) : (
                 <div className="flex flex-col gap-3">
                   <a
